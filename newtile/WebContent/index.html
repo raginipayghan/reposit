@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv='Content-Type' content='text/html;charset=UTF-8'/>
+     
+  <script src="resources/sap-ui-core.js"
+    id="sap-ui-bootstrap"
+    data-sap-ui-libs="sap.m"
+    data-sap-ui-theme="sap_bluecrystal">
+  </script>
+  <!-- only load the mobile lib "sap.m" and the "sap_mvi" theme -->
+
+  <script>
+  var app = sap.m.App("myApp",{});
+  console.log("Ragini");
+  var tilecont = new sap.m.TileContainer({
+   tiles: [
+    new sap.m.StandardTile({
+       
+       number : "1",
+       title : "Patient Management",
+       
+     press:function(){
+      app.to("page1");
+     }
+     
+    }),
+    new sap.m.StandardTile({
+       
+       number : "2",
+       title : "Ward Management",
+       
+     press:function(){
+      app.to("page2");
+     }
+     
+    }),
+    new sap.m.StandardTile({
+       
+       number : "3",
+       title : "Doctor Diagnosis",
+       
+     press:function(){
+      app.to("page3");
+     }
+     
+    })
+    
+    
+   ],
+   
+  });
+  app.addPage(tilecont);
+  
+  var l1 =  new sap.m.StandardTile({
+          number : "1",
+          title : "IN Patient"
+          });
+  
+
+  var l3 =  new sap.m.StandardTile({
+          number : "2",
+          title : "OUT Patient"
+          });
+  
+          
+  var page1 = new sap.m.Page("page1",{
+   title: " Details",
+   showNavButton:true,
+   navButtonTap:function(){
+    app.back();
+   },
+   content : [l1,l3]
+  });
+  app.addPage(page1);
+  
+  var l2 =  new sap.m.StandardTile({
+        number : "1",
+        title : "General Ward"
+        })
+  
+  var l4 =  new sap.m.StandardTile({
+        number : "2",
+        title : "ICU"
+        })
+  
+  var page2 = new sap.m.Page("page2",{
+   title: " Details2",
+   showNavButton:true,
+   navButtonTap:function(){
+    app.back();
+   },
+   content : [l2,l4]
+  });
+  app.addPage(page2);
+  
+  var l5 = new sap.m.List({});
+  
+  var page3 = new sap.m.Page("page3",{
+   title: " Details2",
+   showNavButton:true,
+   navButtonTap:function(){
+    app.back();
+   },
+   content : []
+  });
+  
+  
+  app.placeAt("content");
+  </script>
+
+ </head>
+ <body class="sapUiBody" role="application">
+  <div id="content"></div>
+ </body>
+</html>
